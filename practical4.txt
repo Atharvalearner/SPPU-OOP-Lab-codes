@@ -1,0 +1,45 @@
+import java.util.Scanner; 
+abstract class Shape{ 
+ double side1,side2;
+ public double input1() {
+Scanner sc=new Scanner(System.in);
+System.out.println("Enter first side :");
+side1= sc.nextInt();
+return side1;
+ }
+ public double input2() {
+Scanner sc=new Scanner(System.in);
+System.out.println("Enter second side :");
+side2= sc.nextInt();
+return side2;
+ }
+ abstract void compute_area(double a, double b);
+}
+class Triangle extends Shape{
+ @Override
+ void compute_area(double a, double b) {
+ double area=0.5*a*b;
+ System.out.println("Area of Triangle : "+area);
+ }
+}
+class Rectangle extends Shape{
+ @Override
+ void compute_area(double a, double b) {
+ double area=a*b;
+ System.out.println("Area of Rectangle : "+area);
+ }
+}
+public class Practical4 {
+ public static void main(String[] args) {
+ System.out.println("Area of Traingle :");
+ Shape t=new Triangle();
+ Shape r=new Rectangle();
+ t.side1= t.input1();
+ t.side2=t.input2();
+ t.compute_area(t.side1,t.side2);
+ System.out.println("Area of Rectangle :");
+ r.side1=r.input1();
+ r.side2=r.input2();
+ r.compute_area(r.side1,r.side2);
+ }
+}

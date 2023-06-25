@@ -1,0 +1,54 @@
+import java.util.Scanner; 
+class Complex{ 
+ int real1,img1,real2,img2,add1,add2,sub1,sub2,mult1,mult2;
+ double div1,div2;
+ public Complex(){
+real1=0;
+img1=0;
+real2=0;
+img2=0;
+ }
+ public Complex(int a){
+Scanner sc=new Scanner(System.in);
+System.out.println("COMPLEX NUMBER : a+ib");
+System.out.println("Enter a :");
+real1=sc.nextInt();
+System.out.println("Enter b :");
+img1= sc.nextInt();
+System.out.println("\nCOMPLEX NUMBER : c+id");
+System.out.println("Enter c :");
+real1=sc.nextInt();
+System.out.println("Enter d :");
+ img2= sc.nextInt();
+ }
+ public void addition(){
+ add1=real1+real2;
+ add2=img2+img1;
+ System.out.println("\nADDITION OF COMPLEX NUMBERS : "+add1+" + i "+add2);
+ }
+ public void subtraction(){
+ sub1=real1-real2;
+ sub2=real1-real2;
+ System.out.println("SUBTRACTION OF COMPLEX NUMBERS : "+sub1+" + i "+sub2);
+ }
+ public void multiplication(){
+ mult1=(real1*real2)-(img1*img2);
+ mult2=(real1*img2)+(real2*img1);
+ System.out.println("MULTIPLICATION OF COMPLEX NUMBERS : "+mult1+" + i "+mult2);
+ }
+ public void division(){
+ int div=(real2*real2)+(img2*img2);
+ div1=((real1*real2)+(img1+img2))/(div);
+ div2=((img1*real2)-(real1*img2))/div;
+ System.out.println("DIVISION OF COMPLEX NUMBERS : "+div1+" + i "+div2);
+ }
+}
+class Practical1 {
+ public static void main(String[] args) {
+ Complex c=new Complex(4);
+ c.addition();
+ c.subtraction();
+ c.multiplication();
+ c.division();
+ }
+}

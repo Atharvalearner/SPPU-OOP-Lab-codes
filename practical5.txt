@@ -1,0 +1,63 @@
+interface Vehicle{ 
+ void applyBrake();
+ void speedUp();
+ void gearChange();
+}
+class Bicycle implements Vehicle{
+ @Override
+ public void applyBrake() {
+System.out.println("Applying brakes in Bicycle.");
+ }
+ @Override
+ public void gearChange() {
+System.out.println("Changing gear in Bicycle.");
+ }
+ @Override
+ public void speedUp() {
+System.out.println("Speeding up the Bicycle.");
+ }
+}
+class Bike implements Vehicle{
+ @Override
+ public void applyBrake() {
+ System.out.println("Applying brakes in Bike.");
+ }
+ @Override
+ public void gearChange() {
+ System.out.println("Changing gear in Bike.");
+ }
+ @Override
+ public void speedUp() {
+ System.out.println("Speeding up the Bike.");
+ }
+}
+class Car implements Vehicle{
+ @Override
+ public void applyBrake() {
+ System.out.println("Applying brakes in Car.");
+ }
+ @Override
+ public void gearChange() {
+ System.out.println("Changing gear in Car.");
+ }
+ @Override
+ public void speedUp() {
+ System.out.println("Speeding up the Car.");
+ }
+}
+public class Practical5 {
+ public static void main(String[] args) {
+ Bicycle b = new Bicycle();
+ b.applyBrake();
+ b.speedUp();
+ b.gearChange();
+ Bike a = new Bike();
+ a.applyBrake();
+ a.gearChange();
+ a.speedUp();
+ Car c = new Car();
+ c.applyBrake();
+ c.gearChange();
+ c.speedUp();
+ }
+}

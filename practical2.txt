@@ -1,0 +1,136 @@
+import java.util.Scanner; 
+class Publication{ 
+ String title;
+ int price;
+ int copies,c;
+ public Publication(){
+copies =100;
+title="Chandoba";
+price =200;
+ }
+ public void issueCopy(){
+Scanner sc=new Scanner(System.in);
+System.out.println("Enter number of copies to issue : ");
+c= sc.nextInt();
+System.out.println("Copies issued : "+c);
+ }
+ public void sellCopies(){
+copies=copies-c;
+System.out.println("Copies Sold : "+c);
+ }
+}
+class Book extends Publication{
+ String author;
+ public Book(){
+ author="X.Y.Z";
+ }
+ public void orderCopies(){
+ Scanner sc=new Scanner(System.in);
+ System.out.println("Enter number of copies to order :");
+ copies= sc.nextInt();
+ System.out.println("Number of copies ordered : "+copies+" with author "+author);
+ }
+}
+class Magazine extends Publication{
+ String maga,maga1;
+ public Magazine(){
+ maga="Issue 1 : January";
+ maga1="Issue 2 : February";
+ }
+ public void orderQty(){
+ Scanner sc=new Scanner(System.in);
+ System.out.println("Enter number of copies to order :");
+ copies= sc.nextInt();
+ System.out.println("Number of copies ordered : "+copies);
+ }
+ public void currentIssue(){
+ System.out.println("Current issue of Magazine : "+maga);
+ }
+ public void receiveIssue(){
+ System.out.println("Received issue of Magazine : "+maga1);
+ }
+}
+public class Practical2 {
+ public static void main(String[] args) {
+ Publication p = new Publication();
+ Book b = new Book();
+ Magazine m = new Magazine();
+ int ch = 0;
+ Scanner sc = new Scanner(System.in);
+ while (ch != 4) {
+ System.out.println("\n***************** MENU *****************");
+ System.out.println("1.Publication");
+ System.out.println("2.Book");
+ System.out.println("3.Magazine");
+ System.out.println("4.Exit");
+ System.out.println("Enter your choice :");
+ ch = sc.nextInt();
+ switch (ch) {
+ case 1:
+ int c = 0;
+ while (c != 3) {
+ System.out.println("\n***************** MENU : PUBLICATION 
+*****************");
+ System.out.println("1.Copies issued");
+ System.out.println("2.Copies sold");
+ System.out.println("3.Exit");
+ c = sc.nextInt();
+ switch (c) {
+ case 1:
+ p.issueCopy();
+ break;
+ case 2:
+ p.sellCopies();
+ break;
+ case 3:
+ System.out.println("Exiting .....");
+ break;
+ }
+ }
+ break;
+ case 2:
+ int c1 = 0;
+ while (c1 != 2) {
+ System.out.println("\n***************** MENU : BOOK *****************");
+ System.out.println("1.Order Copies");
+ System.out.println("2.Exit");
+ c1 = sc.nextInt();
+ switch (c1) {
+ case 1:
+ b.orderCopies();
+ break;
+ case 2:
+ System.out.println("Exiting .....");
+ break;
+ }
+ }
+ break;
+ case 3:
+ int c3 = 0;
+ while (c3 != 4) {
+ System.out.println("\n***************** MENU : MAGAZINE *****************");
+ System.out.println("1.Order Copies");
+ System.out.println("2. Current issue");
+ System.out.println("3. Receive issue");
+ System.out.println("4.Exit");
+ c3 = sc.nextInt();
+ switch (c3) {
+ case 1:
+ m.orderQty();
+ break;
+ case 2:
+ m.currentIssue();
+ break;
+ case 3:
+ m.receiveIssue();
+ break;
+ case 4:
+ System.out.println("Exiting .....");
+ break;
+ }
+ }
+ break;
+ }
+ }
+ }
+}

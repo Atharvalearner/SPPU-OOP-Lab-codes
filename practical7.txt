@@ -1,0 +1,86 @@
+import java.util.ArrayList; 
+import java.util.Scanner; 
+class Operations{ 
+ ArrayList <Integer> arr;
+ Scanner sc;
+ Operations()
+ {
+arr=new ArrayList<>();
+sc=new Scanner(System.in);
+ }
+ public void input()
+ {
+System.out.println("Enter number of elements :");
+int len=sc.nextInt();
+System.out.println("Enter elements of arraylist :");
+for(int i=0;i<len;i++)
+{
+int num= sc.nextInt();
+arr.add(num);
+}
+Even_odd(arr);
+ prime(arr);
+ palindrome(arr);
+ }
+ public void Even_odd(ArrayList<Integer>a)
+ {
+ int even=0,odd=0;
+ for(int ele:a)
+ {
+ if(ele%2==0)
+ {
+ even++;
+ }
+ else{
+ odd++;
+ }
+ }
+ System.out.println("Count of even numbers : "+even);
+ System.out.println("Count of odd numbers : "+odd);
+ }
+ public void prime(ArrayList<Integer> a)
+ {
+ int primeCount=0;
+ for(int ele:a)
+ {
+ int flag=0;
+ for(int i=2;i<ele;i++)
+ {
+ if(ele%i==0)
+ {
+ flag=1;
+ }
+ }
+ if(flag==0)
+ {
+ primeCount++;
+ }
+ }
+ System.out.println("Count of prime numbers : "+primeCount);
+ }
+ public void palindrome(ArrayList<Integer>a)
+ {
+ int pali=0;
+ for(int ele:a) {
+ if (ele >=10) {
+ String s = String.valueOf(ele);
+ String rev="";
+ for(int i=s.length()-1;i>=0;i--)
+ {
+ rev=rev+s.charAt(i);
+ }
+ if(s.equalsIgnoreCase(rev))
+ {
+ pali++;
+ }
+ }
+ }
+ System.out.println("Count of palindrome : "+pali);
+ }
+}
+public class Practical7 {
+ public static void main(String[] args) {
+ Operations o=new Operations();
+ o.input();
+ }
+}

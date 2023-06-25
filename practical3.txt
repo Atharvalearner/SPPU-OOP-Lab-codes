@@ -1,0 +1,121 @@
+import java.util.Scanner; 
+class Employee{ 
+ String emp_name;
+ String address;
+ String mail_id;
+ String prof;
+ long mobile_no;
+ int emp_id;
+ double basic_pay;
+ double net_salary,gross_salary;
+ double hra,da,pf,staff_club_fund;
+ void input(){
+Scanner sc=new Scanner(System.in);
+System.out.println("Enter your name :");
+emp_name=sc.nextLine();
+System.out.println("Enter employee ID :");
+emp_id=sc.nextInt();
+System.out.println("Enter E-mail ID :");
+ mail_id=sc.next();
+ System.out.println("Enter address :");
+ Scanner s=new Scanner(System.in);
+ address=s.nextLine();
+ System.out.println("Enter mobile number :");
+ mobile_no=sc.nextLong();
+ }
+ void display(){
+ System.out.println("*******************************************************");
+ System.out.println("Name of employee : "+emp_name);
+ System.out.println("Employee ID : "+emp_id);
+ System.out.println("Profession : "+prof);
+ System.out.println("E-mail ID : "+mail_id);
+ System.out.println("Mobile number : "+mobile_no);
+ System.out.println("Address : "+address);
+ System.out.println("*******************************************************");
+ }
+ void calculation(){
+ da=0.97*basic_pay;
+ hra=0.10*basic_pay;
+ pf=0.12*basic_pay;
+ staff_club_fund=0.001*basic_pay;
+ gross_salary=basic_pay+hra+da;
+ net_salary=gross_salary-pf-staff_club_fund;
+ }
+ void slip(){
+ System.out.println("\t\t\tEMPLOYEE SLIP");
+ System.out.println("***************************************************");
+ System.out.println("GROSS SALARY : "+gross_salary);
+ System.out.println("NET SALARY : "+ net_salary);
+ System.out.println("***************************************************");
+ }
+}
+class Programmer extends Employee{
+ Programmer(){
+ basic_pay=40000;
+ prof="Programmer";
+ }
+}
+class TeamLead extends Employee{
+ TeamLead(){
+ basic_pay=50000;
+ prof="Team Lead";
+ }
+}
+class AssistantProjectManager extends Employee{
+ AssistantProjectManager(){
+ basic_pay=60000;
+ prof="Assistant Project Manager";
+ }
+}
+class ProjectManager extends Employee{
+ ProjectManager(){
+ basic_pay=70000;
+ prof="Project Manager";
+ }
+}
+public class Practical3{
+ public static void main(String []args){
+ int ch=0;
+ while(ch!=5){
+ System.out.println("\t\t\n\n********** MENU **********");
+ System.out.println("Choose the Employee type :");
+ System.out.println("1.Programmer");
+ System.out.println("2.Team-Lead");
+ System.out.println("3.Assistant Project Manager");
+ System.out.println("4.Project Manager");
+ System.out.println("5.Exit");
+ System.out.println("Enter your choice :");
+ Scanner s=new Scanner(System.in);
+ ch=s.nextInt();
+ switch(ch){
+ case 1:Programmer p=new Programmer();
+ p.prof="Programmer";
+ p.input();
+ p.calculation();
+ p.display();
+ p.slip();
+ break;
+ case 2:TeamLead t=new TeamLead();
+ t.input();
+ t.calculation();
+ t.display();
+ t.slip();
+ break;
+ case 3:AssistantProjectManager a=new AssistantProjectManager();
+ a.input();
+ a.calculation();
+ a.display();
+ a.slip();
+ break;
+ case 4:ProjectManager pr=new ProjectManager();
+ pr.input();
+ pr.calculation();
+ pr.display();pr.slip();
+ break;
+ case 5:
+ System.out.println("\n\nEXIT !!!!!");
+ break;
+ }
+ }
+ }
+ }
